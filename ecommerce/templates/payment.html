@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+ <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>PAYMENT</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">ABOUT US</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+<div class="container mt-5 mb-4 text-center border-dark">
+    {% if payment %}
+<form action="{% url 'cart:payment_success' user.username %}" method="POST">
+<script
+   src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_RdvE8CPnsiqcrx"
+    data-amount={{payment.amount}}
+    data-currency="INR"
+    data-order_id={{payment.id}}
+    data-buttontext="Pay with Razorpay"
+    data-name="Acme Corp"
+    data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name={{user.username}}
+    data-prefill.email="gaurav.kumar@example.com"
+    data-theme.color="#F37254"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden"/>
+</form>
+    {% else %}
+    <h1>order placed successfully</h1>
+    {% endif %}
+</div>
+{% endblock %}

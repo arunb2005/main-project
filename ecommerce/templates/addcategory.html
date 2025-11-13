@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+ <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>ADD CATEGORIES</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">ABOUT US</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+<div class="container bg-secondary border border-2px border-shadow mt-5 mb-4 text-center border-dark">
+<h1 class="text-center mt-3">CATEGORY DETAILS</h1>
+
+    <form method="POST" class="text-light" enctype="multipart/form-data">
+      {% csrf_token %}
+        {{form|crispy}}
+
+    <input type="submit" class="btn btn-light mb-4 ">
+</form>
+</div>
+{% endblock %}

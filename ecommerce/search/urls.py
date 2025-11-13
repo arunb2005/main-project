@@ -22,5 +22,5 @@ from search import views
 app_name='search'
 
 urlpatterns = [
-
+    path('search',views.Searchview.as_view(),name='search'),
 ]

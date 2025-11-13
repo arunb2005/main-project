@@ -22,4 +22,11 @@ app_name='shop'
 urlpatterns = [
     path('',views.Categoryview.as_view(),name='categories'),
     path('productview/<int:i>',views.Productview.as_view(),name='productview'),
+    path('productdetails/<int:j>',views.Productdetails.as_view(),name='productdetails'),
+    path('register',views.Register.as_view(),name='register'),
+    path('userlogin',views.Login.as_view(),name='userlogin'),
+    path('userlogout',views.Logout.as_view(),name='userlogout'),
+    path('addcategory',views.Addcategory.as_view(),name='addcategory'),
+    path('addproduct',views.Addproduct.as_view(),name='addproduct'),
+    path('updatestock/<int:i>',views.Updatestock.as_view(),name='updatestock'),
 ]
